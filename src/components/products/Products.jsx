@@ -145,7 +145,7 @@ const Products = () => {
               displayedProducts.map((item, index) => (
                 <div
                   key={index}
-                  className=" w-full min-[768px]:w-[23%] min-[1220px]:w-[24%] p-[13px] border"
+                  className=" w-full min-[480px]:w-[45%] min-[768px]:w-[23%] min-[1220px]:w-[24%] p-[13px] border"
                 >
                   <div className="relative">
                     <img
@@ -219,9 +219,10 @@ const Products = () => {
               <Swiper
                 ref={swiperRef}
                 // loop={true}
-                pagination={false}
+                pagination={true}
                 navigation={false}
                 modules={[Pagination, Navigation]}
+                // onSlideChange={() => console.log("swiper")}
                 breakpoints={{
                   0: {
                     spaceBetween: 10,
@@ -309,7 +310,7 @@ const Products = () => {
             )}
           </div>
 
-          {products.length > displayedProducts.length && (
+          {products.length > displayedProducts.length && !productSlider && (
             <div className="flex justify-center mt-4">
               <button
                 className="flex items-center gap-[10px] w-[193px] h-[56px] mb-2 bg-[#0059BC] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
