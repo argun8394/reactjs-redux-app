@@ -46,8 +46,8 @@ const SlideShow = () => {
   }, [currentSlide, interval, slides.length]);
 
   return (
-    <div className="relative flex justify-center min-[480px]:pt-[145] pt-[148px] bg-white">
-      <div className="slideshow relative">
+    <div className=" relative flex justify-center min-[480px]:pt-[145] pt-[148px] bg-white">
+      <div className="containerDiv slideshow relative ">
         {slides.map((slide, index) => (
           <div
             key={index}

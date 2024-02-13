@@ -3,6 +3,7 @@ import logo from "../../assets/Frame.png";
 import { useState, useEffect } from "react";
 import MenuItem from "../menu-item/MenuItem";
 import Rectangle from "../../assets/Rectangle 37.png";
+import search from "../../assets/Search.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -93,7 +94,7 @@ const Navbar = () => {
               <div className="relative flex flex-col items-center w-full h-[40px] ">
                 <button
                   onClick={(e) => setIsOpen(!isOpen)}
-                  className="w-[156px] rounded-r-[4px] h-[40px] bg-blue-400  flex items-center justify-between font-bold text-lg tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white "
+                  className="w-[156px] rounded-r-[4px] h-[40px] bg-[#F4F5F6]  flex items-center justify-between font-bold text-lg tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white "
                 >
                   Categories
                 </button>
@@ -112,8 +113,10 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <button className="min-[480px]:ml-2 min-[480px]:inline bg-[#0059BC] max-w-[110px] min-w-[100px] h-[40px] rounded-[4px] text-white">
-            Search
+          <button className=" min-[480px]:ml-2 min-[480px]:inline bg-[#0059BC] max-w-[110px] min-w-[100px] h-[40px] rounded-[4px] text-white">
+            <div className="flex justify-center items-center">
+              <img src={search} alt="search" />
+            </div>
           </button>
         </div>
       </div>
