@@ -2,6 +2,7 @@ import { clearProducts, getProducts } from "../../features/productsSlice";
 import { addFavorite, removeFavorite } from "../../features/favoriteSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import loadingGif from "../../assets/loading.gif";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -9,6 +10,7 @@ const Products = () => {
   const { favorites } = useSelector((state) => state.favorites);
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [productsToShow, setProductsToShow] = useState(4);
+  const [showFavorites, setShowFavorites] = useState(false);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -37,12 +39,42 @@ const Products = () => {
     setProductsToShow(productsToShow + 4);
   };
 
+  const filterFavorites = () => {
+    return products.filter((item) =>
+      favorites.some((favItem) => favItem.id === item.id)
+    );
+  };
+
+  const toggleShowFavorites = () => {
+    setShowFavorites(!showFavorites);
+    setDisplayedProducts(
+      showFavorites ? products.slice(0, productsToShow) : filterFavorites()
+    );
+  };
+
+  const formatter = (item) => {
+    return Number(item).toLocaleString("tr-TR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  };
+
   return (
     <div className="flex justify-center items-center bg-white">
+      {loading && (
+        <div className="flex justify-center items-center">
+          <img src={loadingGif} alt="loading" />
+        </div>
+      )}
+      {error && (
+        <div className="flex justify-center items-center text-red-700">
+          News can not be fetched
+        </div>
+      )}
       <div className="navBarPadding containerDiv bg-white">
-        <div className="flex justify-between">
-          <h2>Products</h2>
-          <div className="flex justify-center">
+        <div className="flex items-center font-[500] justify-between">
+          <h2 className="text-[32px] ">Products</h2>
+          <div className="flex justify-center gap-3 text-[16px]">
             <div className="flex justify-center items-center h-6 w-6 rounded-[36px] ">
               <svg
                 width="16"
@@ -70,13 +102,16 @@ const Products = () => {
                 </g>
               </svg>
             </div>
-            <p>{favorites.length} Ürün</p>
-            <button className="btn btn-primary bg-blue-500">
+            <p className="">{favorites.length} Ürün</p>
+            <button
+              className="btn btn-primary bg-blue-500 leading-[18.75px] text-[#FFFFFF] rounded-[4px] py-1 px-2"
+              onClick={() => toggleShowFavorites()}
+            >
               Beğenilenler
             </button>
           </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-10 mt-7">
+        <div className="flex flex-wrap justify-center gap-3 mt-6 p-3">
           {displayedProducts.map((item, index) => (
             <div key={index} className=" w-[285px] p-[26px] border">
               <div className="relative">
@@ -123,9 +158,8 @@ const Products = () => {
               </div>
               <h2 className="px-1 w-full h-[27px] font-bold">{item.name}</h2>
               <p className="px-1 font-[700] w-full h-[24px] text-[#00254F] bg-[#E6EEF8] ">
-                {item.price}
-              </p>{" "}
-              {/*price format */}
+                {formatter(item.price)}
+              </p>
               <h3 className="px-1 h-[22px] font-[500] text-[12px]">
                 Description
               </h3>

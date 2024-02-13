@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../assets/Frame.png";
 import { useState, useEffect } from "react";
 import MenuItem from "../menu-item/MenuItem";
+import Rectangle from "../../assets/Rectangle 37.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -116,6 +117,9 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+      {/* <div className="containerDiv flex w-full justify-center items-center ">
+        <img src={Rectangle} alt="Rectangle" />
+      </div> */}
       <div className="navBarPadding containerDiv hidden min-[480px]:flex mx-auto justify-start h-[65px] gap-4 items-center bg-[#fff]">
         <MenuItem />
       </div>

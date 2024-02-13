@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import slide1 from "../../assets/Property.png";
-import slide2 from "../../assets/Rectangle 26.png";
-import slide3 from "../../assets/Rectangle27.png";
-import slide4 from "../../assets/Rectangle 28.png";
+import slide1 from "../../assets/slide1.png";
+import slide2 from "../../assets/slide2.png";
+import slide3 from "../../assets/slide3.png";
+import slide4 from "../../assets/slide4.png";
 
 const SlideShow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -46,8 +46,8 @@ const SlideShow = () => {
   }, [currentSlide, interval, slides.length]);
 
   return (
-    <div className="flex justify-center min-[480px]:pt-[145] pt-[148px] bg-white">
-      <div className="slideshow ">
+    <div className="relative flex justify-center min-[480px]:pt-[145] pt-[148px] bg-white">
+      <div className="slideshow relative">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -58,6 +58,16 @@ const SlideShow = () => {
           <p>{slide.description}</p> */}
           </div>
         ))}
+        <div className="absolute bottom-4 right-4 flex space-x-2">
+          {slides.map((_, index) => (
+            <div
+              key={index}
+              className={`w-3 h-3 rounded-full ${
+                index === currentSlide ? "bg-gray-500" : "bg-gray-200"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
