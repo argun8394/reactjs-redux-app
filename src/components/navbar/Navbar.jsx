@@ -5,6 +5,8 @@ import MenuItem from "../menu-item/MenuItem";
 import Rectangle from "../../assets/Rectangle 37.png";
 import search from "../../assets/Search.png";
 import arrow from "../../assets/expand_more (3).png";
+import menuIcon from "../../assets/burger-menu-svgrepo-com.svg";
+import xIcon from "../../assets/x_icon.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +57,7 @@ const Navbar = () => {
   return (
     <div className="w-full fixed top-0 z-[10] bg-[#fff]">
       <div className="navBarPadding containerDiv flex flex-col justify-around min-[480px]:flex min-[480px]:flex-row mx-auto min-[480px]:justify-between  h-[148px] min-[480px]:h-[80px]  gap-1 min-[480px]:items-center ">
-        <div className="flex justify-between">
+        <div className="flex justify-between ">
           {!show && (
             <img
               className="h-[24px]"
@@ -83,12 +85,14 @@ const Navbar = () => {
           )}
 
           <div
-            className="hamburgerIcon block min-[480px]:hidden"
+            className="hamburgerIcon flex flex-col gap-[2px] min-[480px]:hidden justify-center h-[25px]"
             onClick={() => setShow(!show)}
           >
-            <span className=""></span>
-            <span className=""></span>
-            <span className=""></span>
+            {!show ? (
+              <img src={menuIcon} alt="menuIcon" />
+            ) : (
+              <img src={xIcon} alt="xIcon" />
+            )}
           </div>
         </div>
         <div className="flex w-full">

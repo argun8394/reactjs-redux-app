@@ -36,7 +36,7 @@ const MenuItem = () => {
       {displayItems.map((item, index) => (
         <span
           key={index}
-          className="text-clip text-nowrap cursor-pointer"
+          className="text-clip text-nowrap cursor-pointer lineAnimate"
           onClick={() => setShowImg(!showImg)}
         >
           {item}
