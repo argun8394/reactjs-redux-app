@@ -36,24 +36,27 @@ const MenuItem = () => {
       {displayItems.map((item, index) => (
         <span
           key={index}
-          className="text-clip text-nowrap"
+          className="text-clip text-nowrap cursor-pointer"
           onClick={() => setShowImg(!showImg)}
         >
           {item}
         </span>
       ))}
       {menuItems.length > 6 && windowWidth <= 768 && (
-        <button className="" onClick={() => setShowMore(!showMore)}>
+        <button
+          className="cursor-pointer"
+          onClick={() => setShowMore(!showMore)}
+        >
           More
         </button>
       )}
       {showMore && (
-        <ul className="absolute flex flex-col justify-center items-center right-[-20px] top-8 bg-[#F4F5F6] w-[92px] h-[92px]">
+        <ul className="absolute flex flex-col justify-center items-center right-[-20px] pr-2 top-8 bg-[#F4F5F6] w-[92px] h-[92px]">
           {menuItems.slice(6).map((item, index) => (
             <li
               key={index}
               onClick={() => setShowImg(!showImg)}
-              className="cursor-pointer bg-red-400 text-red-500"
+              className="cursor-pointer bg-[#F4F5F6] text-[#6A6D70] text-[12px] font-[500]"
             >
               {item}
             </li>
@@ -63,7 +66,7 @@ const MenuItem = () => {
 
       {showImg && (
         <div className="absolute left-0 top-8 w-[100%] p-12 bg-[#F4F5F6]">
-          <div className="flex justify-between items-center gap-4">
+          <div className="flex justify-between items-center gap-4 ">
             <div className="flex gap-10 ">
               <div className="flex flex-col gap-3">
                 <h2>Header</h2>

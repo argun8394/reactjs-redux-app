@@ -61,7 +61,7 @@ const Products = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-white">
+    <div className="flex flex-col justify-center items-center bg-white mt-12">
       {loading && (
         <div className="flex  justify-center items-center ">
           <img src={loadingGif} alt="loading" className="h-[400px]" />

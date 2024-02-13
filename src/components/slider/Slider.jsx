@@ -53,12 +53,16 @@ const SlideShow = () => {
             key={index}
             className={index === currentSlide ? "slide active" : "slide"}
           >
-            <img src={slide.imageUrl} alt={slide.altText} />
+            <img
+              src={slide.imageUrl}
+              alt={slide.altText}
+              className="min-h-[250px] max-h-[450px]"
+            />
             {/* <h2>{slide.title}</h2>
           <p>{slide.description}</p> */}
           </div>
         ))}
-        <div className="absolute bottom-4 right-4 flex space-x-2">
+        <div className="absolute navBarPadding flex justify-end items-center bg-[#00000066] h-[58px] bottom-0 right-0 space-x-2 w-full">
           {slides.map((_, index) => (
             <div
               key={index}
