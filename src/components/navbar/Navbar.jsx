@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import MenuItem from "../menu-item/MenuItem";
 import Rectangle from "../../assets/Rectangle 37.png";
 import search from "../../assets/Search.png";
+import arrow from "../../assets/expand_more (3).png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [show, setShow] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("Categories");
 
   const navList = [
     {
@@ -25,10 +27,10 @@ const Navbar = () => {
   ];
   const list = [
     {
-      title: "Account",
+      title: "Data",
     },
     {
-      title: "Prizes",
+      title: "Users",
     },
     {
       title: "Account",
@@ -45,13 +47,19 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+    setIsOpen(false);
+  };
+
   return (
     <div className="w-full fixed top-0 z-[10] bg-[#fff]">
       <div className="navBarPadding containerDiv flex flex-col justify-around min-[480px]:flex min-[480px]:flex-row mx-auto min-[480px]:justify-between  h-[148px] min-[480px]:h-[80px]  gap-1 min-[480px]:items-center ">
         <div className="flex justify-between">
           {!show && (
             <img
-              className="w-[183px] min-[480px]:w-[170px] min-[780px]:w-[183px] min-w-[170px] h-[24px]"
+              className="h-[24px]"
+              // className="w-[183px] min-[480px]:w-[170px] min-[780px]:w-[183px] min-w-[170px] h-[24px]"
               src={logo}
               alt="logo"
             />
@@ -84,28 +92,36 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex w-full">
-          <div className="relative flex border-[1px] rounded border-[#89919A] w-full">
+          <div className="relative flex border-[1px] rounded border-[#89919A] w-full  hover:border-[#30387c] hover:border-[3px]">
             <input
               type="text"
-              className="w-full h-[40px] "
+              className="w-full min-w-6 h-[40px] "
               placeholder="Search..."
             />
-            <div className=" hidden min-[480px]:inline  w-[156px] ">
+            <div className=" hidden min-[480px]:inline w-[40px]  min-[768px]:w-[156px] ">
               <div className="relative flex flex-col items-center w-full h-[40px] ">
                 <button
                   onClick={(e) => setIsOpen(!isOpen)}
-                  className="w-[156px] rounded-r-[4px] h-[40px] bg-[#F4F5F6]  flex items-center justify-between font-bold text-lg tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white "
+                  className="z-20 w-[132px] rounded-r-[4px] h-[40px] bg-[#F4F5F6] px-3 flex items-center justify-between font-[400] text-[14px] tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white "
                 >
-                  Categories
+                  <span>{isOpen ? "Categories" : selectedCategory}</span>
+                  <img
+                    src={arrow}
+                    alt="arrow"
+                    className={`${!isOpen ? "" : "transform rotate-180"} `}
+                  />
                 </button>
                 {isOpen && (
-                  <div className="bg-blue-400 absolute top-10 flex flex-col items-start p-2 w-full">
+                  <div className="z-20 bg-[#00254F] opacity-100 absolute top-11 flex flex-col items-start p-2 w-[156px] rounded-[4px]">
                     {list.map((item, i) => (
                       <div
-                        className="flex w-full justify-between hover:bg-blue-200 cursor-pointer"
+                        className="flex w-full justify-between hover:bg-[#0059BC] cursor-pointer p-1"
                         key={i}
+                        onClick={() => handleCategorySelect(item.title)}
                       >
-                        <h3 className="font-bold">{item.title}</h3>
+                        <h3 className="font-[400] text-[14px] text-[#FFFFFF]">
+                          {item.title}
+                        </h3>
                       </div>
                     ))}
                   </div>
@@ -113,7 +129,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <button className=" min-[480px]:ml-2 min-[480px]:inline bg-[#0059BC] max-w-[110px] min-w-[100px] h-[40px] rounded-[4px] text-white">
+          <button className=" min-[480px]:ml-2 min-[480px]:inline bg-[#0059BC] max-w-[110px] min-w-[90px] h-[40px] rounded-[4px] text-white">
             <div className="flex justify-center items-center">
               <img src={search} alt="search" />
             </div>

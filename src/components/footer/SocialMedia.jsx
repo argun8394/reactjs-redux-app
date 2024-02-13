@@ -22,7 +22,7 @@ const SocialMedia = () => {
         <a href="https://www.facebook.com" target="_blank">
           <div className="border rounded-full p-2 border-white cursor-pointer group bg-white hover:scale-[1.15] ease-linear duration-200">
             <svg
-              className=" min-w-[20px] max-w-[20px] h-[20px] p-1 fill-current group-hover:scale-[1.3] ease-linear duration-200"
+              className=" min-w-[20px] max-w-[20px] h-[20px] fill-current group-hover:scale-[1.3] ease-linear duration-200"
               width="96"
               height="185"
               viewBox="0 0 96 185"

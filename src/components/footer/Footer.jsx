@@ -57,7 +57,7 @@ const Footer = () => {
         <div>
           <img src={Rectangle} alt="Rectangle" />
         </div>
-        <div className="flex justify-between items-center text-[20px] font-[400]">
+        <div className="flex justify-between items-center text-[20px] min-[480px]:text-[14px] min-[768px]:text-[20px] font-[400]">
           <div>
             <a href="mailto:contact@nttdata.com">contact@nttdata.com</a>
           </div>
