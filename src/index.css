@@ -1,13 +1,121 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+} */
+
+body {
+  position: relative;
+  background-color: #fff;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.containerDiv {
+  width: clamp(200px, 90%, 1440px);
+}
+
+.slideshow .slide {
+  display: none;
+}
+
+.slideshow .slide.active {
+  display: block;
+}
+
+.navBarPadding {
+  padding-left: 16px;
+}
+
+@media screen and (max-width: 480px) and (max-width: 768px) {
+  .navBarPadding {
+    padding-left: 1.3vw;
+    padding-right: 1.3vw;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navBarPadding {
+    padding-left: 6.25vw;
+    padding-right: 6.25vw;
+  }
+}
+
+.hamburgerIcon {
+  width: 25px;
+  height: 17px;
+  position: relative;
+  transform: rotate(0);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+.hamburgerIcon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  border-radius: 9px;
+  opacity: 1;
+  transform: rotate(0);
+  transition: 0.25s ease-in-out;
+}
+.hamburgerIcon span:nth-child(1) {
+  top: 0;
+  left: 0;
+  transform-origin: left center;
+}
+.hamburgerIcon span:nth-child(2) {
+  top: 7px;
+  right: 0;
+  transform-origin: left center;
+}
+.hamburgerIcon span:nth-child(3) {
+  top: 14px;
+  left: 0;
+  transform-origin: left center;
+}
+.hamburgerIcon.open span:nth-child(1) {
+  transform: rotate(-45deg);
+  top: 15px;
+  left: 8px;
+  height: 4px;
+}
+.hamburgerIcon.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+  height: 4px;
+}
+.hamburgerIcon.open span:nth-child(3) {
+  transform: rotate(45deg);
+  top: -3px;
+  left: 8px;
+  height: 4px;
+}
+.lineAnimate {
+  display: inline-block;
+  padding-bottom: 0.1rem;
+  position: relative;
+}
+.lineAnimate::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #5871f1;
+  transition: width 0.25s ease-in-out;
+}
+.lineAnimate:hover::before {
+  width: 100%;
 }
