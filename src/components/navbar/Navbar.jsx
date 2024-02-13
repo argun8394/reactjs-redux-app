@@ -93,16 +93,12 @@ const Navbar = () => {
         </div>
         <div className="flex w-full">
           <div className="relative flex border-[1px] rounded border-[#89919A] w-full  hover:border-[#30387c] hover:border-[3px]">
-            <input
-              type="text"
-              className="w-full min-w-6 h-[40px] "
-              placeholder="Search..."
-            />
-            <div className=" hidden min-[480px]:inline w-[40px]  min-[768px]:w-[156px] ">
-              <div className="relative flex flex-col items-center w-full h-[40px] ">
+            <input type="text" className="w-full" placeholder="Search..." />
+            <div className="hidden min-[480px]:inline  max-w-[132px] min-w-[90px]">
+              <div className="relative flex flex-col items-center w-full h-[40px]">
                 <button
                   onClick={(e) => setIsOpen(!isOpen)}
-                  className="z-20 w-[132px] rounded-r-[4px] h-[40px] bg-[#F4F5F6] px-3 flex items-center justify-between font-[400] text-[14px] tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white "
+                  className="z-20 rounded-r-[4px] w-full h-[40px] bg-[#F4F5F6] px-3 flex items-center justify-between font-[400] text-[14px] tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white "
                 >
                   <span>{isOpen ? "Categories" : selectedCategory}</span>
                   <img
