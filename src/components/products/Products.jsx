@@ -12,6 +12,7 @@ const Products = () => {
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [productsToShow, setProductsToShow] = useState(4);
   const [showFavorites, setShowFavorites] = useState(false);
+  const [showMoreLine, setShowMoreLine] = useState(false);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -109,24 +110,30 @@ const Products = () => {
               </div>
               <p className="">{favorites.length} Ürün</p>
               <button
-                className="btn btn-primary bg-blue-500 leading-[18.75px] text-[#FFFFFF] rounded-[4px] py-1 px-2"
+                className={`btn btn-primary bg-[#0059BC] leading-[18.75px] text-[#FFFFFF] rounded-[4px] py-1 px-2 ${
+                  showFavorites &&
+                  "bg-[#FFFFFF] text-[#0059BC] border-[1px] border-[#0059BC]"
+                } `}
                 onClick={() => toggleShowFavorites()}
               >
-                Beğenilenler
+                {showFavorites ? "Beğenilenler" : "Tüm Ürünler"}
               </button>
             </div>
           </div>
-          <div className="flex flex-wrap justify-center gap-3 mt-6 p-3">
+          <div className="flex flex-wrap justify-center mt-6 gap-3 p-3">
             {displayedProducts.map((item, index) => (
-              <div key={index} className=" w-[285px] p-[26px] border">
+              <div
+                key={index}
+                className=" w-full min-[768px]:w-[23%] min-[1220px]:w-[24%] p-[13px] border"
+              >
                 <div className="relative">
                   <img
                     src={item.imageUrl}
                     alt={item.name}
-                    className="w-full h-[179px]"
+                    className="w-full max-h-[179px]"
                   />
                   <div
-                    className="absolute top-[11px] right-[11px] rounded-[36px] bg-[#FFFFFF]"
+                    className="absolute p-[6px] top-[11px] right-[11px] rounded-[36px] bg-[#FFFFFF]"
                     onClick={() => handleClickButton(item)}
                   >
                     <svg
@@ -160,16 +167,31 @@ const Products = () => {
                     </svg>
                   </div>
                 </div>
-                <h2 className="px-1 w-full h-[27px] font-bold">{item.name}</h2>
-                <p className="px-1 font-[700] w-full h-[24px] text-[#00254F] bg-[#E6EEF8] ">
-                  {formatter(item.price)}
-                </p>
-                <h3 className="px-1 h-[22px] font-[500] text-[12px]">
-                  Description
-                </h3>
-                <p className="px-1 font-[400] text-[12px]">
-                  {item.description}
-                </p>
+                <div className="flex flex-col justify-around h-[172px]">
+                  <h2 className="px-1 w-full font-bold">{item.name}</h2>
+                  <p className="px-1 font-[700] w-full h-[24px] text-[#00254F] bg-[#E6EEF8] ">
+                    {formatter(item.price)}
+                  </p>
+                  <h3 className="px-1 h-[22px] font-[500] text-[12px]">
+                    Description
+                  </h3>
+                  <p
+                    className={`px-1 font-[400] text-[12px] ${
+                      showMoreLine ? "line-clamp-none" : "  line-clamp-1"
+                    }  `}
+                  >
+                    {item.description}
+                  </p>
+                  <span
+                    className="font-[500] text-[10px] text-[#0059BC]"
+                    onClick={() => setShowMoreLine(!showMoreLine)}
+                  >
+                    devamını gör
+                  </span>
+                  <p className="px-1 font-[400] text-[10px]">
+                    {item.shippingMethod}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
