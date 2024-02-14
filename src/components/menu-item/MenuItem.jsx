@@ -45,7 +45,7 @@ const MenuItem = () => {
   const displayItems = windowWidth > 768 ? menuItems : menuItems.slice(0, 6);
 
   return (
-    <div className="flex justify-between gap-[2px] relative text-[12px] font-[500] w-full">
+    <div className="flex justify-between gap-[2px] relative text-[10px] min-[600px]:text-[12px] font-[500] w-full">
       {displayItems.map((item, index) => (
         <span
           key={index}
@@ -57,7 +57,7 @@ const MenuItem = () => {
       ))}
       {menuItems.length > 6 && windowWidth <= 768 && (
         <button
-          className="flex justify-center items-center gap-2 cursor-pointer  "
+          className="flex justify-center items-center gap-2 cursor-pointer mr-[30px] "
           onClick={() => setShowMore(!showMore)}
         >
           More
@@ -69,7 +69,7 @@ const MenuItem = () => {
         </button>
       )}
       {showMore && (
-        <ul className="absolute flex flex-col justify-center items-center right-[-20px] pr-2 top-8 bg-[#F4F5F6] w-[92px] h-[92px]">
+        <ul className="absolute flex flex-col justify-center items-center right-0 pr-2 top-8 bg-[#F4F5F6] w-[92px] h-[92px]">
           {menuItems.slice(6).map((item, index) => (
             <li
               key={index}
