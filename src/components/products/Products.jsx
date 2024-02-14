@@ -202,7 +202,7 @@ const Products = () => {
                     </h3>
                     <p
                       className={`px-1 font-[400] text-[12px] ${
-                        showMoreLine ? "line-clamp-none" : "  line-clamp-1"
+                        showMoreLine ? "" : "clapText"
                       }  `}
                     >
                       {item.description}
