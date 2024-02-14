@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState, useRef } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -16,10 +16,11 @@ const SliderProducts = ({
   setShowMoreLine,
   showMoreLine,
 }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const swiperRef = useRef(null);
 
   return (
-    <div className="w-full mb-[106px]">
+    <div className="w-full mb-[106px] relative">
       {productSlider && (
         <Swiper
           ref={swiperRef}
@@ -85,7 +86,7 @@ const SliderProducts = ({
                     </svg>
                   </div>
                 </div>
-                <div className="flex flex-col justify-around h-[172px]">
+                <div className="flex flex-col justify-around min-h-[172px]">
                   <h2 className="px-1 w-full font-bold">{item.name}</h2>
                   <p className="px-1 font-[700] w-full h-[24px] text-[#00254F] bg-[#E6EEF8] ">
                     {formatter(item.price)}
@@ -110,6 +111,18 @@ const SliderProducts = ({
             </SwiperSlide>
           ))}
         </Swiper>
+      )}
+      {productSlider && (
+        <div className="absolute navBarPadding flex justify-center items-center h-[58px] top-[24-px] space-x-2 w-full">
+          {[0, 1, 2, 3].map((_, index) => (
+            <div
+              key={index}
+              className={`w-3 h-3 rounded-full  ${
+                index === currentSlide ? "bg-gray-500" : "bg-gray-200"
+              }`}
+            />
+          ))}
+        </div>
       )}
     </div>
   );

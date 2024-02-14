@@ -17,7 +17,7 @@ const Products = () => {
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [productsToShow, setProductsToShow] = useState(4);
   const [showFavorites, setShowFavorites] = useState(false);
-  const [showMoreLine, setShowMoreLine] = useState(false);
+  const [showMoreLine, setShowMoreLine] = useState(true);
   const [productSlider, setProductSlider] = useState(false);
 
   useEffect(() => {
@@ -185,12 +185,12 @@ const Products = () => {
                       <img
                         src={item.imageUrl}
                         alt={item.name}
-                        className="w-full max-h-[179px]"
+                        className="w-full min-h-[179px]"
                       />
                     </div>
                   </Link>
 
-                  <div className="flex flex-col justify-around h-[172px]">
+                  <div className="flex flex-col justify-around min-h-[172px]">
                     <h2 className="px-1 w-full font-bold">{item.name}</h2>
                     <p className="px-1 font-[700] w-full h-[24px] text-[#00254F] bg-[#E6EEF8] ">
                       {formatter(item.price)}
