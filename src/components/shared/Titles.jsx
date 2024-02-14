@@ -8,7 +8,7 @@ const Titles = ({ groupTitle, textColor }) => {
       {groupTitle.map((item, index) => (
         <div
           key={index}
-          className="flex min-[768px]:flex-col justify-end gap-3 text-[24px] font-[500]"
+          className="flex min-[768px]:flex-col justify-end gap-3 text-[20px] min-[768px]:text-[24px] font-[500]"
         >
           <h3 className=" ">{item.title}</h3>
           {item.subtitles.map((subtitle, i) => (
