@@ -136,9 +136,9 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      {/* <div className="containerDiv flex w-full justify-center items-center ">
-        <img src={Rectangle} alt="Rectangle" />
-      </div> */}
+      <div className=" flex w-full justify-center items-center ">
+        <img src={Rectangle} alt="Rectangle" className="containerDiv" />
+      </div>
       <div className="navBarPadding containerDiv hidden min-[480px]:flex mx-auto justify-start h-[65px] gap-4 items-center bg-[#fff]">
         <MenuItem />
       </div>
