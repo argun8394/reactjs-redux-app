@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import hoverimg from "../../assets/hoverimg.png";
+import arrow from "../../assets/expand_more (3).png";
 
 const MenuItem = () => {
   const [showMore, setShowMore] = useState(false);
@@ -44,10 +45,15 @@ const MenuItem = () => {
       ))}
       {menuItems.length > 6 && windowWidth <= 768 && (
         <button
-          className="cursor-pointer"
+          className="flex justify-center items-center gap-2 cursor-pointer  "
           onClick={() => setShowMore(!showMore)}
         >
           More
+          <img
+            src={arrow}
+            alt="arrow"
+            className={`${!showMore ? "" : "transform rotate-180"} `}
+          />
         </button>
       )}
       {showMore && (
