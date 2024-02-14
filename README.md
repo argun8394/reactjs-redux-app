@@ -1,12 +1,21 @@
-# Getting Started with Create React App
+# React Redux Project
+* React
+* Redux-toolkit
+* React-router
+* Tailwind
+* Swiper
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Install the dependencies
+ ```bash
+yarn
+# or
+npm install
+```
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
