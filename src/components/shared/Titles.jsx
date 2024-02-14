@@ -1,8 +1,10 @@
 import React from "react";
 
-const Titles = ({ groupTitle }) => {
+const Titles = ({ groupTitle, textColor }) => {
   return (
-    <div className="hidden min-[480px]:flex min-[480px]:flex-col min-[768px]:flex-row  gap-[7vw] justify-between align-items-end min:[480px]-ml-1 text-[#FFFFFF]">
+    <div
+      className={`hidden min-[480px]:flex min-[480px]:flex-col min-[768px]:flex-row  gap-[6vw] justify-between align-items-end min:[480px]-ml-1 text-${textColor}`}
+    >
       {groupTitle.map((item, index) => (
         <div
           key={index}

@@ -3,7 +3,7 @@ import Rectangle from "../../assets/Rectangle 37.png";
 import Frame84 from "../../assets/Frame 84.png";
 import logo from "../../assets/footerlogo.png";
 import SocialMedia from "./SocialMedia";
-import Titles from "./Titles";
+import Titles from "../shared/Titles";
 
 const Footer = () => {
   const groupTitle = [
@@ -47,7 +47,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <Titles groupTitle={groupTitle} />
+          <Titles groupTitle={groupTitle} textColor="#FFFFFF" />
         </div>
         <div>
           <img src={Rectangle} alt="Rectangle" />
