@@ -17,7 +17,7 @@ const Products = () => {
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [productsToShow, setProductsToShow] = useState(4);
   const [showFavorites, setShowFavorites] = useState(false);
-  const [showMoreLine, setShowMoreLine] = useState(true);
+  const [showMoreLine, setShowMoreLine] = useState(false);
   const [productSlider, setProductSlider] = useState(false);
 
   useEffect(() => {
@@ -58,6 +58,13 @@ const Products = () => {
     setDisplayedProducts(
       showFavorites ? products.slice(0, productsToShow) : filterFavorites()
     );
+  };
+
+  const handleShowMoreLine = (itemId) => {
+    setShowMoreLine((prev) => ({
+      ...prev,
+      [itemId]: !prev[itemId],
+    }));
   };
 
   const formatter = (item) => {
@@ -200,14 +207,14 @@ const Products = () => {
                     </h3>
                     <p
                       className={`px-1 font-[400] text-[12px]  ${
-                        !showMoreLine ? "" : "clapText"
+                        !showMoreLine[item.id] ? "clapText" : ""
                       }  `}
                     >
                       {item.description}{" "}
                     </p>
                     <span
                       className="font-[500] text-[10px] text-[#0059BC] "
-                      onClick={() => setShowMoreLine(!showMoreLine)}
+                      onClick={() => handleShowMoreLine(item.id)}
                     >
                       devamını gör
                     </span>
