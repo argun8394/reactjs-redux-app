@@ -3,23 +3,39 @@ import Rectangle from "../../assets/Rectangle 37.png";
 import Frame84 from "../../assets/Frame 84.png";
 import logo from "../../assets/footerlogo.png";
 import SocialMedia from "./SocialMedia";
+import Titles from "./Titles";
 
 const Footer = () => {
+  const groupTitle = [
+    {
+      title: "Title",
+      subtitles: ["subtitle1", "subtitle1", "subtitle1", "subtitle1"],
+    },
+    {
+      title: "Title",
+      subtitles: ["subtitle2", "subtitle2", "subtitle2", "subtitle2"],
+    },
+    {
+      title: "Title",
+      subtitles: ["subtitle3", "subtitle3", "subtitle3", "subtitle3"],
+    },
+  ];
+
   return (
     <div className="flex justify-center bg-white">
-      <div className="navBarPadding containerDiv flex flex-col justify-between px-5 py-3 w-[1440px]  bg-[#0059BC] h-[401px] text-[#FFFFFF]">
+      <div className="navBarPadding containerDiv flex flex-col justify-between px-5 py-3  bg-[#0059BC] max-h-[451px] text-[#FFFFFF]">
         <div className="flex justify-between py-[65px]">
           <div className="flex flex-col justify-between gap-6 max-w-[470px]">
             <div>
               <img src={logo} alt="logo" />
             </div>
             <div>
-              <p className="text-wrap text-[16px] font-[400]">
+              <p className="hidden min-[480px]:inline text-wrap text-[16px] font-[400]">
                 Lorem ipsum dolor sit amet consectetur. Auctor tempor pretium
                 aliquam neque.
               </p>
             </div>
-            <div className="relative w-[407px] h-[38px]">
+            <div className="relative max-w-[407px] h-[38px] min-w-[275px]">
               <input
                 type="text"
                 placeholder="Email"
@@ -30,34 +46,13 @@ const Footer = () => {
               </button>
             </div>
           </div>
-          <div className="hidden min-[480px]:flex justify-between align-items-end gap-16">
-            <div className="flex flex-col justify-end gap-4 ">
-              <h3>Title</h3>
-              <p>Subtitle</p>
-              <p>Subtitle</p>
-              <p>Subtitle</p>
-              <p>Subtitle</p>
-            </div>
-            <div className="hidden min-[1440px]:flex flex-col justify-end gap-4">
-              <h3>Title</h3>
-              <p>Subtitle</p>
-              <p>Subtitle</p>
-              <p>Subtitle</p>
-              <p>Subtitle</p>
-            </div>
-            <div className="hidden min-[1440px]:flex flex-col justify-end gap-4">
-              <h3>Title</h3>
-              <p>Subtitle</p>
-              <p>Subtitle</p>
-              <p>Subtitle</p>
-              <p>Subtitle</p>
-            </div>
-          </div>
+
+          <Titles groupTitle={groupTitle} />
         </div>
         <div>
           <img src={Rectangle} alt="Rectangle" />
         </div>
-        <div className="flex justify-between items-center text-[20px] min-[480px]:text-[14px] min-[768px]:text-[20px] font-[400]">
+        <div className="flex justify-between items-center text-[12px] min-[480px]:text-[14px] min-[768px]:text-[20px] font-[400] my-5">
           <div>
             <a href="mailto:contact@nttdata.com">contact@nttdata.com</a>
           </div>

@@ -91,7 +91,7 @@ const Products = () => {
       {error && (
         <div className="flex justify-center items-center ">
           <h2 className="font-[700] text-[30px] text-red-700">
-            News can not be fetched
+            Products can not be fetched
           </h2>
         </div>
       )}
