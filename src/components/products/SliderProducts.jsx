@@ -13,7 +13,7 @@ const SliderProducts = ({
   handleClickButton,
   favorites,
   formatter,
-  setShowMoreLine,
+  handleShowMoreLine,
   showMoreLine,
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -94,12 +94,16 @@ const SliderProducts = ({
                   <h3 className="px-1 h-[22px] font-[500] text-[12px]">
                     Description
                   </h3>
-                  <p className={`px-1 font-[400] text-[12px]  `}>
-                    {item.description}
+                  <p
+                    className={`px-1 font-[400] text-[12px]  ${
+                      !showMoreLine[item.id] ? "clapText" : ""
+                    }  `}
+                  >
+                    {item.description}{" "}
                   </p>
                   <span
-                    className="font-[500] text-[10px] text-[#0059BC]"
-                    onClick={() => setShowMoreLine(!showMoreLine)}
+                    className="font-[500] text-[10px] text-[#0059BC] "
+                    onClick={() => handleShowMoreLine(item.id)}
                   >
                     devamını gör
                   </span>

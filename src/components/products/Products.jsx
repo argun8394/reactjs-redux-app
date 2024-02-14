@@ -231,7 +231,7 @@ const Products = () => {
               favorites={favorites}
               formatter={formatter}
               showMoreLine={showMoreLine}
-              setShowMoreLine={setShowMoreLine}
+              handleShowMoreLine={handleShowMoreLine}
             />
           </div>
 
