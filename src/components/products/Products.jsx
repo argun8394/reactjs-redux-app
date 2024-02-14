@@ -190,32 +190,33 @@ const Products = () => {
                         className="w-full max-h-[179px]"
                       />
                     </div>
-                    <div className="flex flex-col justify-around h-[172px]">
-                      <h2 className="px-1 w-full font-bold">{item.name}</h2>
-                      <p className="px-1 font-[700] w-full h-[24px] text-[#00254F] bg-[#E6EEF8] ">
-                        {formatter(item.price)}
-                      </p>
-                      <h3 className="px-1 h-[22px] font-[500] text-[12px]">
-                        Description
-                      </h3>
-                      <p
-                        className={`px-1 font-[400] text-[12px] ${
-                          showMoreLine ? "line-clamp-none" : "  line-clamp-1"
-                        }  `}
-                      >
-                        {item.description}
-                      </p>
-                      <span
-                        className="font-[500] text-[10px] text-[#0059BC]"
-                        onClick={() => setShowMoreLine(!showMoreLine)}
-                      >
-                        devamını gör
-                      </span>
-                      <p className="px-1 font-[400] text-[10px]">
-                        {item.shippingMethod}
-                      </p>
-                    </div>
                   </Link>
+
+                  <div className="flex flex-col justify-around h-[172px]">
+                    <h2 className="px-1 w-full font-bold">{item.name}</h2>
+                    <p className="px-1 font-[700] w-full h-[24px] text-[#00254F] bg-[#E6EEF8] ">
+                      {formatter(item.price)}
+                    </p>
+                    <h3 className="px-1 h-[22px] font-[500] text-[12px]">
+                      Description
+                    </h3>
+                    <p
+                      className={`px-1 font-[400] text-[12px] ${
+                        showMoreLine ? "line-clamp-none" : "  line-clamp-1"
+                      }  `}
+                    >
+                      {item.description}
+                    </p>
+                    <span
+                      className="font-[500] text-[10px] text-[#0059BC]"
+                      onClick={() => setShowMoreLine(!showMoreLine)}
+                    >
+                      devamını gör
+                    </span>
+                    <p className="px-1 font-[400] text-[10px]">
+                      {item.shippingMethod}
+                    </p>
+                  </div>
                 </div>
               ))}
             {productSlider && (
@@ -241,11 +242,13 @@ const Products = () => {
                       className=" w-full min-[768px]:w-[23%] min-[1220px]:w-[24%] p-[13px] border"
                     >
                       <div className="relative">
-                        <img
-                          src={item.imageUrl}
-                          alt={item.name}
-                          className="w-full max-h-[179px]"
-                        />
+                        <Link to="https://nttdata-solutions.com/tr/">
+                          <img
+                            src={item.imageUrl}
+                            alt={item.name}
+                            className="w-full max-h-[179px]"
+                          />
+                        </Link>
                         <div
                           className="absolute p-[6px] top-[11px] right-[11px] rounded-[36px] bg-[#FFFFFF]"
                           onClick={() => handleClickButton(item)}
@@ -289,11 +292,7 @@ const Products = () => {
                         <h3 className="px-1 h-[22px] font-[500] text-[12px]">
                           Description
                         </h3>
-                        <p
-                          className={`px-1 font-[400] text-[12px] ${
-                            showMoreLine ? "line-clamp-none" : "  line-clamp-1"
-                          }  `}
-                        >
+                        <p className={`px-1 font-[400] text-[12px]  `}>
                           {item.description}
                         </p>
                         <span
