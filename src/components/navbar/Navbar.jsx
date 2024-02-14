@@ -11,7 +11,7 @@ import xIcon from "../../assets/x_icon.svg";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [show, setShow] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("Categories");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const navList = [
     {
@@ -58,14 +58,7 @@ const Navbar = () => {
     <div className="w-full fixed top-0 z-[10] bg-[#fff]">
       <div className="navBarPadding containerDiv flex flex-col justify-around min-[480px]:flex min-[480px]:flex-row mx-auto min-[480px]:justify-between  h-[148px] min-[480px]:h-[80px]  gap-1 min-[480px]:items-center ">
         <div className="flex justify-between ">
-          {!show && (
-            <img
-              className="h-[24px]"
-              // className="w-[183px] min-[480px]:w-[170px] min-[780px]:w-[183px] min-w-[170px] h-[24px]"
-              src={logo}
-              alt="logo"
-            />
-          )}
+          {!show && <img className="h-[24px]" src={logo} alt="logo" />}
           {show && (
             <ul
               className="flex gap-3 xs:gap-6"
@@ -104,7 +97,7 @@ const Navbar = () => {
                   onClick={(e) => setIsOpen(!isOpen)}
                   className="z-20 rounded-r-[4px] w-full h-[40px] gap-[2px] bg-[#F4F5F6] px-[2px] min-[678px]:px-2 flex items-center justify-between font-[400] text-[14px] tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white "
                 >
-                  <span>{isOpen ? "Categories" : selectedCategory}</span>
+                  <span>{!isOpen ? "Categories" : selectedCategory}</span>
                   <img
                     src={arrow}
                     alt="arrow"
