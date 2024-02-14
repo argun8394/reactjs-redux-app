@@ -72,7 +72,7 @@ const Products = () => {
       setProductSlider(window.innerWidth < 480);
     };
 
-    handleResize(); // Check initially
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -199,14 +199,14 @@ const Products = () => {
                       Description
                     </h3>
                     <p
-                      className={`px-1 font-[400] text-[12px] indent-2nd-line ${
-                        showMoreLine ? "" : "clapText"
+                      className={`px-1 font-[400] text-[12px]  ${
+                        !showMoreLine ? "" : "clapText"
                       }  `}
                     >
                       {item.description}{" "}
                     </p>
                     <span
-                      className="font-[500] text-[10px] text-[#0059BC]"
+                      className="font-[500] text-[10px] text-[#0059BC] "
                       onClick={() => setShowMoreLine(!showMoreLine)}
                     >
                       devamını gör
