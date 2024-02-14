@@ -133,7 +133,7 @@ const Products = () => {
               <button
                 className={`btn btn-primary bg-[#0059BC] leading-[18.75px] text-[#FFFFFF] rounded-[4px] py-1 px-2 ${
                   showFavorites &&
-                  "bg-[#FFFFFF] text-[#0059BC] border-[1px] border-[#0059BC]"
+                  "bg-[#FFFFFF] text-blue-600 border-[1px] border-[#0059BC]"
                 } `}
                 onClick={() => toggleShowFavorites()}
               >
