@@ -14,7 +14,6 @@ export const getProducts = createAsyncThunk(
     const url = `https://honey-badgers-ecommerce.glitch.me/products`;
 
     const { data } = await axios(url);
-    console.log(data);
     return data;
   }
 );

@@ -205,19 +205,22 @@ const Products = () => {
                     <h3 className="px-1 h-[22px] font-[500] text-[12px]">
                       Description
                     </h3>
-                    <p
-                      className={`px-1 font-[400] text-[12px]  ${
-                        !showMoreLine[item.id] ? "clapText" : ""
-                      }  `}
-                    >
-                      {item.description}{" "}
-                    </p>
-                    <span
-                      className="font-[500] text-[10px] text-[#0059BC] "
-                      onClick={() => handleShowMoreLine(item.id)}
-                    >
-                      devamını gör
-                    </span>
+                    <div className="relative">
+                      {" "}
+                      <p
+                        className={` px-1 font-[400] text-[12px]  ${
+                          !showMoreLine[item.id] ? "clapText" : ""
+                        }  `}
+                      >
+                        {item.description}
+                      </p>
+                      <span
+                        className="absolute bottom-0 italic right-0 bg-white z-20 font-[500] text-[10px] text-[#0059BC] "
+                        onClick={() => handleShowMoreLine(item.id)}
+                      >
+                        ...devamını gör
+                      </span>
+                    </div>
                     <p className="px-1 font-[400] text-[10px]">
                       {item.shippingMethod}
                     </p>
@@ -236,7 +239,7 @@ const Products = () => {
           </div>
 
           {products.length > displayedProducts.length && !productSlider && (
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center">
               <button
                 className="flex items-center gap-[10px] w-[193px] h-[56px] bg-[#0059BC] hover:bg-blue-700 text-white font-bold mb-[96px] px-4 rounded"
                 onClick={handleShowMore}

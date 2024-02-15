@@ -20,7 +20,7 @@ const SliderProducts = ({
   const swiperRef = useRef(null);
 
   return (
-    <div className="w-full mb-[106px] relative">
+    <div className="w-full  relative">
       {productSlider && (
         <Swiper
           ref={swiperRef}
@@ -35,7 +35,7 @@ const SliderProducts = ({
               slidesPerView: 1,
             },
           }}
-          className="w-[100%] xs:w-[85%] relative flex justify-center"
+          className="w-[100%] xs:w-[85%] relative flex justify-center mb-[106px]"
         >
           {products?.map((item, i) => (
             <SwiperSlide className="" key={i}>
@@ -117,7 +117,7 @@ const SliderProducts = ({
         </Swiper>
       )}
       {productSlider && (
-        <div className="absolute navBarPadding flex justify-center items-center h-[58px] top-[24-px] space-x-2 w-full">
+        <div className="absolute navBarPadding flex justify-center items-center h-[58px] bottom-[50px]  space-x-2 w-full">
           {[0, 1, 2, 3].map((_, index) => (
             <div
               key={index}
