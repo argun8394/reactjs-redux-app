@@ -97,7 +97,10 @@ const Navbar = () => {
                   onClick={(e) => setIsOpen(!isOpen)}
                   className="z-20 rounded-r-[4px] w-full h-[40px] gap-[2px] bg-[#F4F5F6] px-[2px] min-[678px]:px-2 flex items-center justify-between font-[400] text-[14px] tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white "
                 >
-                  <span>{!isOpen ? "Categories" : selectedCategory}</span>
+                  <span>
+                    {!isOpen && !selectedCategory ? "Categories" : ""}
+                    {!isOpen && selectedCategory ? selectedCategory : ""}
+                  </span>
                   <img
                     src={arrow}
                     alt="arrow"
